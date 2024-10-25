@@ -25,6 +25,10 @@ function countDown(){
         alert('Game over! o seu resultado foi: '+ state.values.result );
     }
 }
+function playSound(){
+    const audio = new Audio("./src/sounds/hit.m4a");
+    audio.play();
+}
 function randomSquare(){
     state.view.squares.forEach(square=>{
         square.classList.remove('enemy');
@@ -42,6 +46,7 @@ function addListenerBox(){
                 state.values.result++;
                 state.view.score.textContent = state.values.result;
                 state.values.hitPosition = null;
+                playSound();
             }
         })
     })
